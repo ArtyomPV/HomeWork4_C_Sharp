@@ -53,19 +53,66 @@
 пока переменная после уменьшения на 10 не станет равным нулю
 
 */
-int Sum(int num)
+// int Sum(int num)
+// {
+//         int sum = 0;
+//         while(num>0)
+//         {
+//             sum += num%10;
+//             num = num/10;
+//         }
+//         return sum;
+// }
+
+// Console.Write("Enter any number from 0 to 2 147 483 647: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// int summa = Sum(number);
+// Console.WriteLine(summa);
+
+//========================  Task 3 ===================
+/*
+Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+
+6, 1, 33 -> [6, 1, 33]
+*/
+
+/*
+Запрашиваем у пользователя  элементов массива
+далее создаем метод, в методе перебором каждого элемента массива заполняем массив
+значениями который также предоставит пользователь
+*/
+
+int[] FillArray(int length)
 {
-        int sum = 0;
-        while(num>0)
-        {
-            sum += num%10;
-            num = num/10;
-        }
-        return sum;
+    int[] arr = new int[length];
+    for (int i = 0; i < length; i++)
+    {
+        Console.Write($"Enter {i} element of array: ");
+        arr[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return arr;
 }
 
-Console.Write("Enter any number from 0 to 2 147 483 647: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int summa = Sum(number);
-Console.WriteLine(summa);
+void ShowArray( int[] array)
+{
+    Console.Write("Entered array: [");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(i<array.Length-1)
+        {
+            Console.Write($"{array[i]}, ");
+        }
+        else 
+        {
+            Console.Write($"{array[i]}");
+        }
+    }
+    Console.Write("]");
+}
 
+Console.Write("Enter quality of array`s element: ");
+int arrayLength = Convert.ToInt32(Console.ReadLine());
+
+ShowArray(FillArray(arrayLength));
